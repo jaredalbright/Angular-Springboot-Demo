@@ -1,0 +1,9 @@
+<div class="main">
+  <div class="header"> <img src="../assets/Bean.png"> <h1>BeanList</h1> </div>
+  <h2>Add Review</h2>
+  <app-coffee-input (newDataEvent)="appendData($event)"/>
+  <h2>Coffee List</h2>
+  <app-coffee-wrapper *ngFor="let coffee of coffees"
+      (removeItemEvent)="removeItem($event)"
+      [coffee]="coffee" />
+</div>

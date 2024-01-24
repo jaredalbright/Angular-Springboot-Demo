@@ -1,0 +1,19 @@
+.display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+}
+
+.content {
+    display: flex;
+}
+
+h3 {
+    font-size: 20px;
+}

@@ -1,0 +1,12 @@
+<div class="wrapper">
+    <mat-card>
+    <app-coffee-edit *ngIf="editable == true"
+        (editDataEvent)="handleSaveEdition($event)"
+        [coffee]="coffee" />
+
+    <app-coffee-display *ngIf="editable == false"
+        (removeItemEvent)="removeItemEvent.emit($event)"
+        (editItemEvent)="handleEditClick()"
+        [coffee]="coffee" />
+    </mat-card>
+</div>

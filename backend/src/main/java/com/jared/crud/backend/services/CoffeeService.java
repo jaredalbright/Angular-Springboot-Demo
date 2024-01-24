@@ -25,9 +25,8 @@ public class CoffeeService {
     }
 
     public CoffeeDto getCoffee(Long id) {
-
         Coffee coffee = coffeeRepository.findById(id)
-                .orElseThrow(() -> new AppException("Vehicle not found", HttpStatus.NOT_FOUND));
+                .orElseThrow(() -> new AppException("Coffee not found", HttpStatus.NOT_FOUND));
         return coffeeMapper.toCoffeeDto(coffee);
     }
 
@@ -35,5 +34,22 @@ public class CoffeeService {
         Coffee coffee = coffeeMapper.toCoffee(coffeeDto);
         Coffee createdCoffee = coffeeRepository.save(coffee);
         return coffeeMapper.toCoffeeDto(createdCoffee);
+    }
+
+    public CoffeeDto deleteCoffee(Long id) {
+        Coffee coffee = coffeeRepository.findById(id)
+                .orElseThrow(() -> new AppException("Coffee Not Found", HttpStatus.NOT_FOUND));
+
+        coffeeRepository.deleteById(id);
+
+        return coffeeMapper.toCoffeeDto(coffee);
+    }
+
+    public CoffeeDto updateCoffee(Long id, CoffeeDto coffeeDto) {
+        Coffee coffee = coffeeRepository.findById(id)
+                .orElseThrow(() -> new AppException("Coffee Not Found", HttpStatus.NOT_FOUND));
+        coffeeMapper.updateCoffee(coffee, coffeeMapper.toCoffee(coffeeDto));
+        Coffee updatedCoffee = coffeeRepository.save(coffee);
+        return coffeeMapper.toCoffeeDto(updatedCoffee);
     }
 }

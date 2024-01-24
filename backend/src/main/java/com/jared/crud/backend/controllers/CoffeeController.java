@@ -31,4 +31,14 @@ public class CoffeeController {
         CoffeeDto createdCoffee = coffeeService.createCoffee(coffeeDto);
         return ResponseEntity.created(URI.create("/coffees/" + createdCoffee.getId())).body(createdCoffee);
     }
+
+    @DeleteMapping("/coffees/{id}")
+    public ResponseEntity<CoffeeDto> delete(@PathVariable Long id) {
+        return ResponseEntity.ok(coffeeService.deleteCoffee(id));
+    }
+
+    @PutMapping("/coffees/{id}")
+    public ResponseEntity<CoffeeDto> updateCoffee(@PathVariable Long id, @Valid @RequestBody CoffeeDto coffeeDto) {
+        return ResponseEntity.ok(coffeeService.updateCoffee(id, coffeeDto));
+    }
 }

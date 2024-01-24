@@ -1,0 +1,23 @@
+<form #coffeeForm="ngForm" class="coffee-form" (ngSubmit)="onSubmit()">
+    <mat-form-field class="coffee-full-width">
+        <mat-label>Shop</mat-label>
+        <input name="shop" ngModel matInput>
+    </mat-form-field>
+
+    <mat-form-field class="coffee-full-width">
+        <mat-label>Coffee Type</mat-label>
+        <input name="type" ngModel matInput>
+    </mat-form-field>
+    
+    <mat-form-field class="coffee-full-width">
+        <mat-label>Price</mat-label>
+        <input type="number" name="price" min="0" ngModel matInput>
+    </mat-form-field>
+
+    <mat-form-field class="coffee-full-width">
+        <mat-label>Rating 0-5</mat-label>
+        <input type="number" name="rating" min="0" max="5" ngModel matInput>
+    </mat-form-field>
+
+    <button type="submit" class="submit-button" mat-raised-button>Submit</button>
+</form>

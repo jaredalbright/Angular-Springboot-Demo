@@ -1,0 +1,17 @@
+
+.main {
+    margin-left: 25px;
+    margin-right: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+}
+
+img {
+    max-height: 50px;
+    max-width: 50px;
+}
